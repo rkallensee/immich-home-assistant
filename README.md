@@ -1,6 +1,8 @@
-# Immich × Home Assistant ![GitHub Release](https://img.shields.io/github/v/release/outadoc/immich-home-assistant) ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/outadoc/immich-home-assistant/validate.yml)
+# Immich Images × Home Assistant ![GitHub Release](https://img.shields.io/github/v/release/outadoc/immich-home-assistant) ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/outadoc/immich-home-assistant/validate.yml)
 
 This custom integration for Home Assistant allows you to display random pictures from your Immich instance right inside your dashboards.
+
+> **Note:** This integration has been renamed from `immich` to `immich_images` to avoid conflicts with the core Home Assistant Immich integration.
 
 ### What is Immich?
 
@@ -32,7 +34,7 @@ icon: mdi:image-frame
 subview: true
 cards:
   - type: picture-entity
-    entity: image.immich_favorite_image
+    entity: image.immich_images_favorite_image
     show_state: false
     show_name: false
     aspect_ratio: "16:9"
@@ -63,9 +65,9 @@ These entities can be displayed using standard lovelace cards − for example, t
 
 ## Configuration
 
-You can set up the Immich integration right from the web UI.
+You can set up the Immich Images integration right from the web UI.
 
-[![Open your Home Assistant instance and start setting up a new integration.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=immich)
+[![Open your Home Assistant instance and start setting up a new integration.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=immich_images)
 
 You will need to enter your instance's URL and an API key. You can generate it from your Account Settings, on your Immich instance.
 
@@ -80,4 +82,4 @@ You can expose more albums on the integration's options page.
 > [!WARNING]  
 > Exposing many albums might consume a lot of resources on your Home Assistant machine, and will also increase the number of calls to your Immich instance.
 
-<img src="assets/entity-list.png" width="600" alt="A list of four image entities provided by the Immich integration">
+<img src="assets/entity-list.png" width="600" alt="A list of four image entities provided by the Immich Images integration">

@@ -1,6 +1,6 @@
 {
-  "domain": "immich",
-  "name": "Immich",
+  "domain": "immich_images",
+  "name": "Immich Images",
   "codeowners": ["@outadoc"],
   "config_flow": true,
   "dependencies": [],

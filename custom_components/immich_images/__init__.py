@@ -1,4 +1,4 @@
-"""The immich integration."""
+"""The immich_images integration."""
 from __future__ import annotations
 
 from homeassistant.config_entries import ConfigEntry
@@ -12,7 +12,7 @@ PLATFORMS: list[Platform] = [Platform.IMAGE]
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
-    """Set up immich from a config entry."""
+    """Set up immich_images from a config entry."""
 
     hass.data.setdefault(DOMAIN, {})
 

@@ -1,4 +1,4 @@
-"""Config flow for Immich integration."""
+"""Config flow for Immich Images integration."""
 from __future__ import annotations
 
 import logging
@@ -53,7 +53,7 @@ async def validate_input(hass: HomeAssistant, data: dict[str, Any]) -> dict[str,
 
 
 class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
-    """Handle a config flow for immich."""
+    """Handle a config flow for immich_images."""
 
     VERSION = 1
 
@@ -89,7 +89,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
 
 class OptionsFlowHandler(config_entries.OptionsFlow):
-    """Immich options flow handler."""
+    """Immich Images options flow handler."""
 
     def __init__(self, config_entry: config_entries.ConfigEntry) -> None:
         """Initialize options flow."""
