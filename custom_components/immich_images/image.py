@@ -159,7 +159,7 @@ class BaseImmichImage(ImageEntity):
 class ImmichImageFavorite(BaseImmichImage):
     """Image entity for Immich that displays a random image from the user's favorites."""
 
-    _attr_unique_id = "immich_images_favorite_image"
+    _attr_unique_id = "favorite_image"
     _attr_name = "Immich Images: Random favorite image"
 
     async def _refresh_available_asset_ids(self) -> list[str] | None:
@@ -170,7 +170,7 @@ class ImmichImageFavorite(BaseImmichImage):
 class ImmichImageAll(BaseImmichImage):
     """Image entity for Immich that displays a random image from all available images"""
 
-    _attr_unique_id = "immich_images_any_image"
+    _attr_unique_id = "any_image"
     _attr_name = "Immich Images: Random image"
 
     async def _refresh_available_asset_ids(self) -> list[str] | None:
