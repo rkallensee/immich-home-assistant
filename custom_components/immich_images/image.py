@@ -10,9 +10,10 @@ from homeassistant.components.image import ImageEntity
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_API_KEY, CONF_HOST
 from homeassistant.core import HomeAssistant
+from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from .const import CONF_WATCHED_ALBUMS
+from .const import CONF_WATCHED_ALBUMS, DOMAIN
 from .hub import ImmichHub
 
 SCAN_INTERVAL = timedelta(minutes=5)
@@ -76,6 +77,14 @@ class BaseImmichImage(ImageEntity):
         self.hass = hass
 
         self._attr_extra_state_attributes = {}
+
+        # Set device info to properly associate entities with a device
+        self._attr_device_info = DeviceInfo(
+            identifiers={(DOMAIN, hub.host)},
+            name="Immich Images",
+            manufacturer="Immich",
+            model="Image Server",
+        )
 
     async def async_update(self) -> None:
         """Force a refresh of the image."""
@@ -150,7 +159,7 @@ class BaseImmichImage(ImageEntity):
 class ImmichImageFavorite(BaseImmichImage):
     """Image entity for Immich that displays a random image from the user's favorites."""
 
-    _attr_unique_id = "favorite_image"
+    _attr_unique_id = "immich_images_favorite_image"
     _attr_name = "Immich Images: Random favorite image"
 
     async def _refresh_available_asset_ids(self) -> list[str] | None:
@@ -161,7 +170,7 @@ class ImmichImageFavorite(BaseImmichImage):
 class ImmichImageAll(BaseImmichImage):
     """Image entity for Immich that displays a random image from all available images"""
 
-    _attr_unique_id = "any_image"
+    _attr_unique_id = "immich_images_any_image"
     _attr_name = "Immich Images: Random image"
 
     async def _refresh_available_asset_ids(self) -> list[str] | None:
