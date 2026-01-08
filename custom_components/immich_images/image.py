@@ -151,7 +151,7 @@ class ImmichImageFavorite(BaseImmichImage):
     """Image entity for Immich that displays a random image from the user's favorites."""
 
     _attr_unique_id = "favorite_image"
-    _attr_name = "Immich: Random favorite image"
+    _attr_name = "Immich Images: Random favorite image"
 
     async def _refresh_available_asset_ids(self) -> list[str] | None:
         """Refresh the list of available asset IDs."""
@@ -162,7 +162,7 @@ class ImmichImageAll(BaseImmichImage):
     """Image entity for Immich that displays a random image from all available images"""
 
     _attr_unique_id = "any_image"
-    _attr_name = "Immich: Random image"
+    _attr_name = "Immich Images: Random image"
 
     async def _refresh_available_asset_ids(self) -> list[str] | None:
         """Refresh the list of available asset IDs."""
@@ -179,7 +179,7 @@ class ImmichImageAlbum(BaseImmichImage):
         super().__init__(hass, hub)
         self._album_id = album_id
         self._attr_unique_id = album_id
-        self._attr_name = f"Immich: {album_name}"
+        self._attr_name = f"Immich Images: {album_name}"
 
     async def _refresh_available_asset_ids(self) -> list[str] | None:
         """Refresh the list of available asset IDs."""
