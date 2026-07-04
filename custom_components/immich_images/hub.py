@@ -137,9 +137,9 @@ class ImmichHub:
             async with aiohttp.ClientSession() as session:
                 url = urljoin(self.host, "/api/search/metadata")
                 headers = {"Accept": "application/json", _HEADER_API_KEY: self.api_key}
-                data = {"isFavorite": "true", "type": "IMAGE"}
+                payload = {"isFavorite": True, "type": "IMAGE"}
 
-                async with session.post(url=url, headers=headers, data=data) as response:
+                async with session.post(url=url, headers=headers, json=payload) as response:
                     if response.status != 200:
                         raw_result = await response.text()
                         _LOGGER.error("Error from API: body=%s", raw_result)
